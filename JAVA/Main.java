@@ -66,6 +66,14 @@ class Main {
         }
         return grade;
     }
+
+    //ex:14 : Court-circuit : éviter un crash
+    public static boolean isNonEmpty(String s ){
+        return s !=null && !s.isEmpty();
+    }
+
+
+
     // ex15 : comparatif strings
     public static boolean sameText(String a, String b) {
         return Objects.equals(a, b);
@@ -198,6 +206,13 @@ class Main {
         // Test GRade
         System.out.println("----ex13------");
         System.out.println(gradeMessage("A"));
+
+        //ex14 Court-circuit : éviter un crash
+        System.out.println("----ex14------");
+        System.out.println(isNonEmpty(null));
+        System.out.println(isNonEmpty(""));
+        System.out.println(isNonEmpty("ok"));
+
 
         // ex15
         System.out.println("----ex15------");
