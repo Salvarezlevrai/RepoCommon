@@ -1,7 +1,7 @@
 package org.example;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 
 class Main {
@@ -96,6 +96,25 @@ class Main {
         return max;
     }
 
+    //ex18:
+    public static int[] reversed(int[] arr){
+        if ( arr == null){
+            return null;
+        }
+        int[] result;
+        result = new int[arr.length];
+        for ( int i=0; i < arr.length; i++){
+            result[i] = arr[arr.length -1 -i];
+        }
+        return result;
+
+    }
+
+
+
+
+
+
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -162,7 +181,8 @@ class Main {
 
         System.out.println(gradeMessage("A"));
 
-
+        // ex15
+        System.out.println("----ex15------");
         System.out.println(sameText("abc", "abc") == true ?"bon": "marche pas" );
 
         System.out.println(sameText(new String("abc"), "abc") == true ?"bon": "marche pas" );
@@ -172,13 +192,21 @@ class Main {
         System.out.println(sameText(null, null) == true ?"bon": "marche pas" );
 
         // ex16 tableaux
+        System.out.println("----ex16------");
         int[] numbers =  {1,2,3,4,5 };
         System.out.println(sumArray(numbers));
         // ex17 : minimum
+        System.out.println("----ex17------");
         int[] tab1= {3,7,2};
         int[] tab2={};
         System.out.println(max(tab1));
         System.out.println(max(tab2));
 
+        //ex18 : reverse
+        System.out.println("----ex18------");
+        int[] original= {1,2,3};
+        int[] reversed= reversed(original);
+        System.out.println(Arrays.toString(reversed));
+        System.out.println(Arrays.toString(original));
     }
 }
