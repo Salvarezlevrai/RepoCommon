@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 class Main {
 
-    static boolean isInRange(int value, int min, int max){
-            return value >= min && value <= max;
+    static boolean isInRange(int value, int min, int max) {
+        if (value >= min && value <= max) {
+            return true;
+        } else {
+            return false;
         }
+    }
 
 
     static boolean sameIntegerValue(Integer a, Integer b){
@@ -42,6 +46,27 @@ class Main {
         return total;
     }
 
+    static String adultLabel(int age){
+        String value = (age >= 18) ? "Majeur" : "Mineur";
+        return value;
+    }
+
+    static  String gradeMessage(String grade){
+        switch (grade){
+            case "A" :
+                return "Execellent";
+            case "B" :
+                return "Bien";
+            case "C" :
+                return "Correct";
+            case "autre":
+                return "inconnu";
+
+        }
+        return grade;
+    }
+
+    // --- TESTEUR DE METHODS()
     static void main(String[] args) {
 
         // --- Test Car ---
@@ -96,8 +121,15 @@ class Main {
 
 
         // Test is in range
-        isInRange(5, 1, 10);
-        isInRange(0, 1, 10);
+        System.out.println( "isInRange :" +isInRange(0, 1, 10));
+        System.out.println( "isInRange :"+isInRange(5, 1, 10));
+
+        // Test maj vs min
+        System.out.println(adultLabel(18));
+
+        // Test GRade
+
+        System.out.println(gradeMessage("A"));
 
     }
 }
