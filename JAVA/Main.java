@@ -138,6 +138,73 @@ class Main {
     }
 
     //ex21: liste de courses
+    public static void shoppingListExample() {
+
+        ArrayList<String> shoppingList = new ArrayList<>();
+
+        shoppingList.add("milk");
+        shoppingList.add("eggs");
+        shoppingList.add("bread");
+
+        shoppingList.remove("eggs");
+
+        System.out.println("Taille de la liste : " + shoppingList.size());
+        System.out.println("Contenu de la liste : " + shoppingList);
+    }
+
+
+    //ex22:Itération : afficher avec index
+    public static void printWithIndex(ArrayList<String> items) {
+        if (items == null) return; // Null protect
+
+
+        for (int i = 0; i < items.size(); i++) { // boucle indexé
+            System.out.println(i + ": " + items.get(i)); // afficher index + élément
+        }
+    }
+
+    //ex23:Map : mini annuaire (clé → valeur)
+    public static class PhoneBook {
+
+        private HashMap<String, String> contacts;
+
+
+        public PhoneBook() {
+            contacts = new HashMap<>();
+        }
+
+        public void addContact(String name, String phone) {
+            contacts.put(name, phone);
+        }
+
+        public String findPhone(String name) {
+            return contacts.get(name); // get renvoie null si la clé n'existe pas
+        }
+
+        public int size() {
+            return contacts.size();
+        }
+    }
+
+    //ex24:Set : supprimer les doublons
+    public static HashSet<String> uniqueEmails(ArrayList<String> emails) {
+        if (emails == null) return new HashSet<>();
+        return new HashSet<>(emails); // HashSet retire automatiquement les doublons
+    }
+
+
+    //ex25: Iterator : supprimer en parcourant (sans bug)
+    public static void removeShortWords(ArrayList<String> words) {
+        if (words == null) return; // protection si null
+
+        Iterator<String> it = words.iterator();
+        while (it.hasNext()) {
+            String word = it.next();
+            if (word.length() < 3) {
+                it.remove(); // suppression sécurisée via l'iterator
+            }
+        }
+    }
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -227,6 +294,7 @@ class Main {
         System.out.println("----ex16------");
         int[] numbers =  {1,2,3,4,5 };
         System.out.println(sumArray(numbers));
+
         // ex17 : minimum
         System.out.println("----ex17------");
         int[] tab1= {3,7,2};
@@ -251,10 +319,45 @@ class Main {
 
         //ex:21 liste de courses
         System.out.println("----ex21------");
+        shoppingListExample();
+
+        //ex:22 Itération : afficher avec index
+        System.out.println("----ex22------");
+        ArrayList<String> shoppingList = new ArrayList<>();
+        shoppingList.add("milk");
+        shoppingList.add("bread");
+        printWithIndex(shoppingList);
+
+        //ex:23 Map : mini annuaire (clé → valeur)
+        System.out.println("----ex23------");
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.addContact("Jean", "555-1234");
+        System.out.println("Numéro de Jean : " + phoneBook.findPhone("Jean"));
+        System.out.println("Nombre de contacts : " + phoneBook.size());
+
+        //ex:24 Set : supprimer les doublons
+        System.out.println("----ex24------");
+        ArrayList<String> emails = new ArrayList<>();
+        emails.add("a@x.com");
+        emails.add("b@x.com");
+        emails.add("a@x.com");
+        HashSet<String> unique = uniqueEmails(emails);
+        System.out.println("Emails uniques : " + unique);
+        System.out.println("Taille attendue : " + unique.size()); // 2
+
+        //ex:25 Iterator : supprimer en parcourant (sans bug)
+        System.out.println("----ex25------");
+        ArrayList<String> words = new ArrayList<>();
+        words.add("a");
+        words.add("ok");
+        words.add("yes");
+        words.add("no");
+        words.add("java");
+        System.out.println("Avant suppression : " + words);
+        removeShortWords(words);
+        System.out.println("Après suppression : " + words); //
 
     }
-
-
 }
 
 
