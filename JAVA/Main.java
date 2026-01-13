@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 class Main {
 
+    static boolean isInRange(int value, int min, int max){
+            return value >= min && value <= max;
+        }
+
+
     static boolean sameIntegerValue(Integer a, Integer b){
 
         if (a == null || b == null){
@@ -89,10 +94,10 @@ class Main {
         maListe.add(5);
         System.out.println(sumList(maListe));
 
-        // -- exo 11--
-        isInRange(5, 1, 10)
-        isInRange(0, 1, 10)
 
+        // Test is in range
+        isInRange(5, 1, 10);
+        isInRange(0, 1, 10);
 
     }
 }

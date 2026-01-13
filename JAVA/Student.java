@@ -25,7 +25,7 @@ public class Student {
     }
 
     void setName(String newName){
-        if (newName == null || newName == ""){
+        if (newName == null || newName.trim().equals("")){
             System.out.println("Error: invalid name");
 
         }
