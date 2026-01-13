@@ -1,8 +1,7 @@
 package org.example;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.*;
+
 
 class Main {
 
@@ -109,11 +108,28 @@ class Main {
         return result;
 
     }
+    //ex19:multiplication
+    public static void Multi (int x){
+        for (int i =0 ;i<=10; i++){
+            System.out.println(x+"*" +i+ "=" +(x *i));
+        }
 
+    }
+    //ex20: compter jusqu'à condition
+    public  static int countTriesToGetSix(){
+        Random random = new Random();
+        int count = 0;
+        int number = 0;
 
+        while (number != 6){
+            number = random.nextInt(6)+1;
+        count++;
+        }
 
+    return count;
+    }
 
-
+    //ex21: liste de courses
 
 
     // --- TESTEUR DE METHODS()
@@ -161,7 +177,7 @@ class Main {
         System.out.println("Student n°2 : " + student2.describe());
 
         // --- Test Integer ---
-
+        System.out.println("----ex10------");
         System.out.println(sameIntegerValue(null, 5));
         ArrayList<Integer> maListe = new ArrayList<>();
         maListe.add(10);
@@ -171,14 +187,16 @@ class Main {
 
 
         // Test is in range
+        System.out.println("----ex11------");
         System.out.println( "isInRange :" +isInRange(0, 1, 10));
         System.out.println( "isInRange :"+isInRange(5, 1, 10));
 
         // Test maj vs min
+        System.out.println("----ex12------");
         System.out.println(adultLabel(18));
 
         // Test GRade
-
+        System.out.println("----ex13------");
         System.out.println(gradeMessage("A"));
 
         // ex15
@@ -208,5 +226,20 @@ class Main {
         int[] reversed= reversed(original);
         System.out.println(Arrays.toString(reversed));
         System.out.println(Arrays.toString(original));
+
+        //ex:19: multiplication
+        System.out.println("----ex19------");
+        Multi(1);
+
+        //ex:20 compter jusqu'à condition
+        System.out.println("----ex20------");
+        System.out.println(countTriesToGetSix());
+
+        //ex:21 liste de courses
+        System.out.println("----ex21------");
     }
+
+
 }
+
+
