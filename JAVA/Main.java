@@ -89,6 +89,10 @@ class Main {
         maListe.add(5);
         System.out.println(sumList(maListe));
 
+        // -- exo 11--
+        isInRange(5, 1, 10)
+        isInRange(0, 1, 10)
+
 
     }
 }
