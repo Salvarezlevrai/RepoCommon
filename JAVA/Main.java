@@ -81,6 +81,21 @@ class Main {
         return sum ;
     }
 
+    //ex17 : trouver le minimum
+    public static int max(int[] arr) {
+
+        if (arr == null || arr.length == 0) {
+            return Integer.MIN_VALUE;
+        }
+        int max = arr[0];
+        for (int value : arr)  {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -159,5 +174,11 @@ class Main {
         // ex16 tableaux
         int[] numbers =  {1,2,3,4,5 };
         System.out.println(sumArray(numbers));
+        // ex17 : minimum
+        int[] tab1= {3,7,2};
+        int[] tab2={};
+        System.out.println(max(tab1));
+        System.out.println(max(tab2));
+
     }
 }
