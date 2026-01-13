@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 import java.util.ArrayList;
 
 class Main {
@@ -65,6 +67,20 @@ class Main {
         }
         return grade;
     }
+    // ex15 : comparatif strings
+    public static boolean sameText(String a, String b) {
+        return Objects.equals(a, b);
+    }
+    //ex 16 : tableaux
+    public  static int sumArray(int[] arr){
+        int sum = 0;
+        for (int t=0 ; t < arr.length ; t ++)
+        {
+            sum += arr[t];
+        }
+        return sum ;
+    }
+
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -131,7 +147,17 @@ class Main {
 
         System.out.println(gradeMessage("A"));
 
+
+        System.out.println(sameText("abc", "abc") == true ?"bon": "marche pas" );
+
+        System.out.println(sameText(new String("abc"), "abc") == true ?"bon": "marche pas" );
+
+        System.out.println(sameText(null, "abc") == false ?"bon": "marche pas");
+
+        System.out.println(sameText(null, null) == true ?"bon": "marche pas" );
+
+        // ex16 tableaux
+        int[] numbers =  {1,2,3,4,5 };
+        System.out.println(sumArray(numbers));
     }
 }
-
-/*testeueh*/
