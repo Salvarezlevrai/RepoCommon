@@ -139,7 +139,6 @@ class Main {
 
     //ex21: liste de courses
 
-
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
 
@@ -252,6 +251,7 @@ class Main {
 
         //ex:21 liste de courses
         System.out.println("----ex21------");
+
     }
 
 
