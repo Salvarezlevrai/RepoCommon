@@ -205,7 +205,34 @@ class Main {
             }
         }
     }
-    //ex26: Créer une hiérarchie Vehicle → Car
+    //ex40: Nouveau PhoneBook pour EXECEPTION KEY
+
+    static class Annuaire {
+        private HashMap<String, String> contacts;
+
+        public Annuaire() {
+            this.contacts = new HashMap<>();
+        }
+
+        /**
+         * Ajoute un contact.
+         * @throws DuplicateKeyException si le nom existe déjà.
+         */
+        public void addContact(String name, String phone) throws DuplicateKeyException {
+            if (contacts.containsKey(name)) {
+                throw new DuplicateKeyException(name);
+            }
+            contacts.put(name, phone);
+        }
+
+        public String findPhone(String name) {
+            return contacts.get(name);
+        }
+
+        public int size() {
+            return contacts.size();
+        }
+    }
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -455,40 +482,84 @@ class Main {
 
         //ex36:  Composition : ClockDisplay contient NumberDisplay
         System.out.println("------ex36----------");
-
-
-
-
-
-
-
-
-
-
-
+        ClockDisplay clock = new ClockDisplay();
+        System.out.println("Départ : " + clock.getTime()); // 00:00
+        //65 tics
+        for (int i = 0; i < 65; i++) {
+            clock.timeTick();
+        }
+        System.out.println("Après 65 ticks : " + clock.getTime());
+        // Attendu : 01:05
 
         //ex37:  Agrégation : Auction utilise des Lot externes
         System.out.println("------ex37----------");
 
+        Lot lot1 = new Lot("Vase chinois du XVIIIe siècle");
+        Lot lot2 = new Lot("Peinture originale de paysage");
+        Auction auction = new Auction();
+
+        auction.addLot(lot1);
+        auction.addLot(lot2);
+
+        System.out.println("Nombre de lots dans l'enchère : " + auction.countLots());
+        // Attendu : 2
+
         //ex38:  Programmation défensive : rejeter null
         System.out.println("------ex38----------");
+        Auction auction2 = new Auction();
 
+        Lot bonLot = new Lot("Table ancienne");
+        auction2.addLot(bonLot);
+        System.out.println("Lots après ajout valide : " + auction2.countLots());
+
+        try {
+            auction2.addLot(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught: " + e.getMessage());
+        }
+
+        System.out.println("Nombre final de lots : " + auction2.countLots());
 
         //ex39:  Try/Catch/Finally : parsing robuste
         System.out.println("------ex39----------");
+        System.out.println("Test 1 avec '42' ");
+        int res1 = ParserUtils.parseIntSafe("42");
+        System.out.println("Résultat : " + res1);
+        System.out.println("--------------------");
+        System.out.println("Test 2 avec 'not-a-number'");
+        int res2 = ParserUtils.parseIntSafe("not-a-number");
+        System.out.println("Résultat : " + res2);
 
 
         //ex40:  Exception personnalisée + propagation (throws)
         System.out.println("------ex40----------");
+        Annuaire monAnnuaire = new Annuaire();
+
+        try {
+            System.out.println("Tentative d'ajout : Kyllian...");
+            monAnnuaire.addContact("Kyllian A.", "0769409949");
+            System.out.println("Kyllian A. a été ajouté.");
+
+            System.out.println("Tentative d'ajout : Iles (à nouveau)...");
+            monAnnuaire.addContact("Iles" , "0788990011");
+
+        } catch (DuplicateKeyException e) {
+            System.out.println("Caught: " + e.getMessage());
+        }
+
+        System.out.println("Nombre de contacts dans l'annuaire : " + monAnnuaire.size());
+        System.out.println("Numéro de Véro : " + monAnnuaire.findPhone("Véro"));
+
 
         //EX:EXTRA: créer une classe garage qui va être associé a une liste d'employée (classe employé existante)
         //le garage permet de créer différentes pièce pour voiture
         //dans le main : afficher toutes les pièces crée et tout les employés travaillant dans le garage.
         //un employé disposera également d'outils, il faut également démontrer dans le main la liste d'outils de chaque employés
-
         System.out.println("------ex:EXTRA------");
-        //FINISH
 
+
+
+        //FINISH
         System.out.println("--------POO-FINISH-TRAINING-LINE----------");
     }
 }
