@@ -401,7 +401,7 @@ class Main {
         System.out.println("Vitesse actuelle : " + myvoiture2.getSpeed2() + " km/h");
 
         //ex29:  Override : une méthode display()
-        System.out.println("----ex28 et ex29------");
+        System.out.println("----ex28 et ex29 et ex30------");
 
         ArrayList<Post> posts = new ArrayList<>();
         //Message Kyllian
@@ -430,6 +430,7 @@ class Main {
         }
 
         //ex31: Interface Drawable + polymorphisme
+        System.out.println("------ex31----------");
 
         ArrayList<Drawable> shapes = new ArrayList<>();
         //construction
