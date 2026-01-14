@@ -1,4 +1,5 @@
-package org.example;
+
+/*package org.example;
 //EX26/27
 class voiture extends Vehicule {
     private String fuelType;
@@ -12,3 +13,4 @@ class voiture extends Vehicule {
     }
 
 }
+*/

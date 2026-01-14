@@ -358,20 +358,6 @@ class Main {
         removeShortWords(words);
         System.out.println("Après suppression : " + words); //
 
-        //ex:26 et Ex27 Créer une hiérarchie Vehicle → Car / Super()
-        System.out.println("----ex26 et ex27------");
-        voiture myvoiture = new voiture("diesel",0);
-        myvoiture.accelerate2(50);
-
-        System.out.println("fueltype: " + myvoiture.fuelType());
-        System.out.println("Vitesse actuelle : " + myvoiture.getSpeed2() + " km/h");
-
-
-        voiture myvoiture2 = new voiture("redbull", 30);
-        myvoiture.accelerate2(50);
-
-        System.out.println("fueltype: " + myvoiture2.fuelType());
-        System.out.println("Vitesse actuelle : " + myvoiture2.getSpeed2() + " km/h");
 
         //ex29:  Override : une méthode display()
         System.out.println("----ex28 et ex29------");
@@ -416,6 +402,10 @@ class Main {
         //ex32: Interface Actor (contrat) : Fox & Rabbit
 
 
+
+
+
+        // GARAGEEEEE
 
 
     }
