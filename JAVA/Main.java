@@ -131,10 +131,10 @@ class Main {
 
         while (number != 6){
             number = random.nextInt(6)+1;
-        count++;
+            count++;
         }
 
-    return count;
+        return count;
     }
 
     //ex21: liste de courses
@@ -205,6 +205,7 @@ class Main {
             }
         }
     }
+    //ex26: Créer une hiérarchie Vehicle → Car
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -356,6 +357,10 @@ class Main {
         System.out.println("Avant suppression : " + words);
         removeShortWords(words);
         System.out.println("Après suppression : " + words); //
+
+        //ex:26  Créer une hiérarchie Vehicle → Car
+        System.out.println("----ex26------");
+
 
     }
 }
