@@ -1,4 +1,9 @@
 package org.example;
 
-public interface Actor {
+
+import java.util.ArrayList;
+
+interface Actor {
+    void act(ArrayList<Actor> newActors);
+    boolean isActive();
 }
