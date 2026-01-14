@@ -68,18 +68,18 @@ class Main {
     }
 
     //ex:14 : Court-circuit : éviter un crash
-    public static boolean isNonEmpty(String s ){
+    static boolean isNonEmpty(String s ){
         return s !=null && !s.isEmpty();
     }
 
 
 
     // ex15 : comparatif strings
-    public static boolean sameText(String a, String b) {
+    static boolean sameText(String a, String b) {
         return Objects.equals(a, b);
     }
     //ex 16 : tableaux
-    public  static int sumArray(int[] arr){
+    static int sumArray(int[] arr){
         int sum = 0;
         for (int t=0 ; t < arr.length ; t ++)
         {
@@ -89,7 +89,7 @@ class Main {
     }
 
     //ex17 : trouver le minimum
-    public static int max(int[] arr) {
+    static int max(int[] arr) {
 
         if (arr == null || arr.length == 0) {
             return Integer.MIN_VALUE;
@@ -104,7 +104,7 @@ class Main {
     }
 
     //ex18:
-    public static int[] reversed(int[] arr){
+    static int[] reversed(int[] arr){
         if ( arr == null){
             return null;
         }
@@ -117,14 +117,14 @@ class Main {
 
     }
     //ex19:multiplication
-    public static void Multi (int x){
+    static void Multi (int x){
         for (int i =0 ;i<=10; i++){
             System.out.println(x+"*" +i+ "=" +(x *i));
         }
 
     }
     //ex20: compter jusqu'à condition
-    public  static int countTriesToGetSix(){
+    static int countTriesToGetSix(){
         Random random = new Random();
         int count = 0;
         int number = 0;
@@ -138,7 +138,7 @@ class Main {
     }
 
     //ex21: liste de courses
-    public static void shoppingListExample() {
+    static void shoppingListExample() {
 
         ArrayList<String> shoppingList = new ArrayList<>();
 
@@ -154,7 +154,7 @@ class Main {
 
 
     //ex22:Itération : afficher avec index
-    public static void printWithIndex(ArrayList<String> items) {
+    static void printWithIndex(ArrayList<String> items) {
         if (items == null) return; // Null protect
 
 
@@ -164,7 +164,7 @@ class Main {
     }
 
     //ex23:Map : mini annuaire (clé → valeur)
-    public static class PhoneBook {
+    static class PhoneBook {
 
         private HashMap<String, String> contacts;
 
@@ -187,14 +187,14 @@ class Main {
     }
 
     //ex24:Set : supprimer les doublons
-    public static HashSet<String> uniqueEmails(ArrayList<String> emails) {
+    static HashSet<String> uniqueEmails(ArrayList<String> emails) {
         if (emails == null) return new HashSet<>();
         return new HashSet<>(emails); // HashSet retire automatiquement les doublons
     }
 
 
     //ex25: Iterator : supprimer en parcourant (sans bug)
-    public static void removeShortWords(ArrayList<String> words) {
+    static void removeShortWords(ArrayList<String> words) {
         if (words == null) return; // protection si null
 
         Iterator<String> it = words.iterator();
@@ -205,6 +205,7 @@ class Main {
             }
         }
     }
+    //ex26: Créer une hiérarchie Vehicle → Car
 
     // --- TESTEUR DE METHODS()
     static void main(String[] args) {
@@ -357,7 +358,68 @@ class Main {
         removeShortWords(words);
         System.out.println("Après suppression : " + words); //
 
+        //ex:26 et Ex27 Créer une hiérarchie Vehicle → Car / Super()
+        System.out.println("----ex26 et ex27------");
+        voiture myvoiture = new voiture("diesel",0);
+        myvoiture.accelerate2(50);
+
+        System.out.println("fueltype: " + myvoiture.fuelType());
+        System.out.println("Vitesse actuelle : " + myvoiture.getSpeed2() + " km/h");
+
+
+        voiture myvoiture2 = new voiture("redbull", 30);
+        myvoiture.accelerate2(50);
+
+        System.out.println("fueltype: " + myvoiture2.fuelType());
+        System.out.println("Vitesse actuelle : " + myvoiture2.getSpeed2() + " km/h");
+
+        //ex29:  Override : une méthode display()
+        System.out.println("----ex28 et ex29------");
+
+        ArrayList<Post> posts = new ArrayList<>();
+        //Message Kyllian
+        MessagePost myPost = new MessagePost("Kyllian", "Java c'est cool!");
+        PhotoPost myPhoto = new PhotoPost("Kyllian","kykydebondy.png","kyky");
+        myPost.like();
+        myPost.like();
+        myPost.like();
+
+        //Message Johann
+        MessagePost myPost2 = new MessagePost("Johann", "Je préfère Python!");
+        PhotoPost myPhoto2 = new PhotoPost("Johann","Jojojurro.png","jojo");
+        myPost2.like();
+
+        //inclure et boucle
+        posts.add(myPost);
+        posts.add(myPhoto);
+        posts.add(myPost2);
+        posts.add(myPhoto2);
+
+        for (Post p :  posts);{
+        myPost.display();
+        myPhoto.display();
+        myPost2.display();
+        myPhoto2.display();
+        }
+
+        //ex31: Interface Drawable + polymorphisme
+
+        ArrayList<Drawable> shapes = new ArrayList<>();
+        //construction
+        shapes.add(new Circle(3));
+        shapes.add(new Rectangle(10, 5));
+        //boucles
+        for (Drawable shape : shapes) {
+            shape.draw();
+        }
+
+        //ex32: Interface Actor (contrat) : Fox & Rabbit
+
+
+
+
     }
+
 }
 
 
