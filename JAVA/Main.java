@@ -557,7 +557,7 @@ class Main {
         //dans le main : afficher toutes les pièces crée et tout les employés travaillant dans le garage.
         //un employé disposera également d'outils, il faut également démontrer dans le main la liste d'outils de chaque employés
         System.out.println("------ex:EXTRA------");
-        System.out.println("A FAIRE DEMAIN");
+        System.out.println("PRINT DANS UN MAIN DEDIE = MainGarage.java");
 
 
 
