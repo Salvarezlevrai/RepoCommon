@@ -214,10 +214,7 @@ class Main {
             this.contacts = new HashMap<>();
         }
 
-        /**
-         * Ajoute un contact.
-         * @throws DuplicateKeyException si le nom existe déjà.
-         */
+
         public void addContact(String name, String phone) throws DuplicateKeyException {
             if (contacts.containsKey(name)) {
                 throw new DuplicateKeyException(name);
@@ -251,7 +248,7 @@ class Main {
         voiture2.brake(100);
 
         System.out.println(voiture1.describe());
-        System.out.println(voiture2.describe()); // Doit afficher speed=0, pas négatif
+        System.out.println(voiture2.describe());
         System.out.println(voiture3.describe());
 
         System.out.println("--- Ticket Machine ---");
@@ -260,13 +257,13 @@ class Main {
         TicketMachine ticket = new TicketMachine(20);
 
         ticket.insertMoney(500);
-        ticket.printTicket(); // Imprime, reste 480
+        ticket.printTicket();
 
         System.out.println("Reste : " + ticket.getBalance());
 
-        int change = ticket.refund(); // Récupère 480
+        int change = ticket.refund();
         System.out.println("Remboursement : " + change);
-        System.out.println("Solde final : " + ticket.getBalance()); // Doit être 0
+        System.out.println("Solde final : " + ticket.getBalance());
 
         // --- Test Student ---
 
@@ -283,7 +280,7 @@ class Main {
         System.out.println(sameIntegerValue(null, 5));
         ArrayList<Integer> maListe = new ArrayList<>();
         maListe.add(10);
-        maListe.add(null); // Le fameux null
+        maListe.add(null);
         maListe.add(5);
         System.out.println(sumList(maListe));
 
@@ -444,7 +441,7 @@ class Main {
         //ex32: Interface Actor (contrat) : Fox & Rabbit
         System.out.println("------ex32----------");
         ArrayList<Actor> actors = new ArrayList<>();
-        ArrayList<Actor> newActors = new ArrayList<>(); // Pour respecter la signature de act
+        ArrayList<Actor> newActors = new ArrayList<>();
 
         actors.add(new Rabbit(3));
         actors.add(new Fox(0));
@@ -484,7 +481,7 @@ class Main {
         //ex36:  Composition : ClockDisplay contient NumberDisplay
         System.out.println("------ex36----------");
         ClockDisplay clock = new ClockDisplay();
-        System.out.println("Départ : " + clock.getTime()); // 00:00
+        System.out.println("Départ : " + clock.getTime());
         //65 tics
         for (int i = 0; i < 65; i++) {
             clock.timeTick();
@@ -503,7 +500,6 @@ class Main {
         auction.addLot(lot2);
 
         System.out.println("Nombre de lots dans l'enchère : " + auction.countLots());
-        // Attendu : 2
 
         //ex38:  Programmation défensive : rejeter null
         System.out.println("------ex38----------");
